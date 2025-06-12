@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from services.seo_service import analyze_text, insert_keyword, get_keywords, get_word_density, get_metrics
+from services.seo_service import analyze_text, insert_keywords, get_keywords, get_word_density, get_metrics
 
 seo_bp = Blueprint("seo", __name__)
 
@@ -15,6 +15,7 @@ def analyze():
     return jsonify(result)
 
 # This route will give us metrics about the text using py-readability-metrics
+# The text needs to be more than 100 words for this
 @seo_bp.route("/metrics", methods=["POST"])
 def metrics():
     data = request.json
@@ -52,9 +53,9 @@ def word_density():
 def insert():
     data = request.json
     text = data.get("text", "")
-    keyword = data.get("keyword", "")
-    if not text or not keyword:
+    keywords = data.get("keywords", "")
+    if not text or not keywords:
         return jsonify({"error": "Missing text or keyword"}), 400
 
-    updated_text = insert_keyword(text, keyword)
-    return jsonify({"updated_text": updated_text})
+    updated_text = insert_keywords(text, keywords)
+    return jsonify(updated_text)

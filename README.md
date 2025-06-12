@@ -26,6 +26,11 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
+Download nltk punkt_tab
+```bash
+python3 download.py
+```
+
 Start the backend server
 ```bash
 python3 app.py
