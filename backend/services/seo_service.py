@@ -4,6 +4,8 @@ from google import genai
 import textrazor
 import re
 from collections import Counter
+import json
+import os
 
 
 def analyze_text(text):
@@ -16,8 +18,58 @@ def analyze_text(text):
         return {"error": "TextRazor API error", "status": response.status_code}
     
     json_content = response.json
+    json_content = json_content["response"]
 
-    return json_content["response"]
+    cleaned_data = {}
+
+    cleaned_data["entities"] = [
+        {
+            "id" : ent["id"],
+            "entityId" : ent["entityId"],
+            "confidenceScore" : ent["confidenceScore"],
+            "relevanceScore" : ent["relevanceScore"],
+            "wikiLink" : ent["wikiLink"],
+        }
+        for ent in json_content["entities"]
+    ]
+
+    cleaned_data["coarseTopics"] = json_content["coarseTopics"]
+
+    # Path to the JSON tagsets file
+    json_path = os.path.join(os.path.dirname(__file__), '..', 'upenn_tagset.json')
+    json_path = os.path.abspath(json_path)
+    
+    # Load JSON
+    with open(json_path, 'r') as f:
+        global tagset
+        tagset = json.load(f)
+
+    sentences = []
+    for sentence in json_content["sentences"]:
+        obj = {}
+        obj["position"] = sentence["position"]
+        obj["words"] = [
+            {
+                "token" : word["token"],
+                "partOfSpeech" : tagset[word["partOfSpeech"]][0]
+            }
+            for word in sentence["words"]
+        ]
+        sentences.append(obj)
+
+    cleaned_data["sentences"] = sentences
+
+    cleaned_data["topics"] = [
+        {
+            "id" : topic["id"],
+            "label" : topic["label"],
+            "score" : topic["score"],
+            "wikiLink" : topic["wikiLink"],
+        }
+        for topic in json_content["topics"][:15]
+    ]
+
+    return cleaned_data
 
 
 def get_metrics(text):
