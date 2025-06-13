@@ -31,13 +31,29 @@ h1 {
 h2 {
   font-size: 3rem;
   margin: 0;
+  color:#1DCD9F
 }
 
+hr {
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  line-height: 1.6;
+}
+
+li {
+  font-size: 1.4rem;
+}
 
 textarea {
   background-color: #1e1e1e;
   color: rgba(255, 255, 255, 0.87);
-  border: 0.3rem solid #333;
+  border: 0.3rem solid #444;
   outline: none;
   border-radius: 0.4rem;
   padding: 1.7rem;
@@ -68,7 +84,82 @@ button:hover {
   cursor: pointer;
 }
 
-.metrics {
+.table-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.sub-results {
+  max-height: 50vh;
+  overflow-y: auto;
   text-align: left;
   display: inline-block;
+  background-color: #1e1e1e;
+  border: 0.1rem solid rgba(255, 255, 255, 0.87);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.87) transparent;
+}
+
+.single-col {
+  width: 20vw;
+}
+
+.coarse-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.coarse-table th,
+.coarse-table td {
+  border: 1px solid #444;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.coarse-table th {
+  background-color: #2a2a2a;
+}
+
+.coarse-table tr:nth-child(even) {
+  background-color: #2b2b2b;
+}
+
+.coarse-table a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.coarse-table a:hover {
+  text-decoration: underline;
+}
+
+.table-container h2 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.two-col li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.two-col li strong {
+  width: 19vw;
+}
+
+.two-col li span {
+  flex: 1;  
 }
