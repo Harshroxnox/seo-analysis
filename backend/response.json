@@ -1,0 +1,74 @@
+{
+  "coarseTopics": [
+    {
+      "id": 0,
+      "label": "Belief",
+      "score": 1,
+      "wikiLink": "http://en.wikipedia.org/Category:Belief"
+    },
+    {
+      "id": 1,
+      "label": "Culture",
+      "score": 0.9101,
+      "wikiLink": "http://en.wikipedia.org/Category:Culture"
+    }
+  ],
+  "entities": [
+    {
+      "confidenceScore": 5.169,
+      "entityId": "Religious violence",
+      "id": 0,
+      "relevanceScore": 0.6801,
+      "wikiLink": "http://en.wikipedia.org/wiki/Religious_violence"
+    },
+    {
+      "confidenceScore": 5.695,
+      "entityId": "Violence",
+      "id": 1,
+      "relevanceScore": 0.4574,
+      "wikiLink": "http://en.wikipedia.org/wiki/Violence"
+    }
+  ],
+  "sentences": [
+    {
+      "position": 0,
+      "words": [
+        {
+          "partOfSpeech": "noun, proper, singular",
+          "token": "Religion"
+        },
+        {
+          "partOfSpeech": "verb, present tense, 3rd person singular",
+          "token": "has"
+        }
+      ]
+    },
+    {
+      "position": 1,
+      "words": [
+        {
+          "partOfSpeech": "adverb",
+          "token": "However"
+        },
+        {
+          "partOfSpeech": "comma",
+          "token": ","
+        }
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": 0,
+      "label": "Religious violence",
+      "score": 1,
+      "wikiLink": "http://en.wikipedia.org/Religious_violence"
+    },
+    {
+      "id": 1,
+      "label": "Social psychology",
+      "score": 1,
+      "wikiLink": "http://en.wikipedia.org/Category:Social_psychology"
+    }
+  ]
+}
