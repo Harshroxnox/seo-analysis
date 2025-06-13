@@ -1,7 +1,7 @@
 # SEO Analysis
 ## Backend Setup
 Make sure you have `python3.10` and `venv` installed.
-<br><br>
+<br>
 
 Clone the project and go inside backend folder
 ```bash
@@ -35,3 +35,24 @@ Start the backend server
 ```bash
 python3 app.py
 ```
+<br>
+
+## Frontend Setup
+Make sure you have `NodeJS` installed on your system.
+<br>
+
+Go to the project folder
+```bash
+cd seo-analysis
+```
+
+Install dependencies
+```bash
+npm install
+```
+
+Run the frontend 
+```bash
+npm run dev
+```
+The frontend must be up and running on http://localhost:5173
